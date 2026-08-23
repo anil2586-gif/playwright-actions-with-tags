@@ -6,14 +6,9 @@ on:
    inputs:
      target_environments:
       description: Environment to test
-      type: choice
-      default: dev
-      options:
-        - dev
-        - qa
-        - stage
-        - uat
-        - prod
+      type: environment
+      default: dev 
+        
         
       required: true
 jobs:
