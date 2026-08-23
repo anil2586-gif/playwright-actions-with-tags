@@ -8,3 +8,5 @@ on:
       description: Environment to test
       type: environment
       required: true
+jobs:
+  
