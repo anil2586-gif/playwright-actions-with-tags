@@ -10,8 +10,7 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    environment:
-    name: ${{inputs.target-env}}
+    environment: ${{inputs.target-env}}
     env:
       BASE_URL: ${{vars.BASE_URL}}     
       USER_NAME: ${{secrets.USERNAME}}
@@ -20,9 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Print configured values
-      run: |
-       echo BASE_URL 
-       echo USER_NAME
+      run: |       
+          # Use $ to print the environment variable values
+          echo "The base URL is: $BASE_URL"
+          echo "The username is: $USER_NAME"
       
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
