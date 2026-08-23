@@ -7,8 +7,7 @@ on:
      target_environments:
       description: Environment to test
       type: environment
-      default: dev 
-        
+      default: dev        
         
       required: true
 jobs:
@@ -16,4 +15,8 @@ jobs:
    runs-on: ubuntu-slim
    environment: 
    name: ${{inputs.target_environments}}
+   env:
+    APP_URL: ${{vars.BASE_URL}}
+    USERNAME: ${{secrets.USERNAME}}
+     
   
