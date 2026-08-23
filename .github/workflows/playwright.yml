@@ -2,22 +2,19 @@ name: Playwright Tests
 on:
  workflow_dispatch:
 env:
-  DAY_OF_WEEK: Monday  
+  DAY_OF_WEEK: Monday 
+ run: |       
+          # Use $ to print the environment variable values
+          echo "The base URL is: $DAY_OF_WEEK"
+          echo "The username is: $MY_NAME"
+        
 jobs:
   test:
     timeout-minutes: 60  
     env:
      MY_NAME: Anil
     runs-on: ubuntu-latest
-    steps:
-    - name: Print configured values    
-      run: |       
-          # Use $ to print the environment variable values
-          echo "The base URL is: $DAY_OF_WEEK"
-          echo "The username is: $MY_NAME"
-          echo "The steps env is: $stepsenv"
-      env:
-        stepsenv: Laste
+    steps:   
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
