@@ -21,8 +21,8 @@ jobs:
     steps:
     - name: Print configured values
       run: |
-       echo "BASE_URL: $BASE_URL" 
-       echo "USER_NAME: $USER_NAME"
+       echo BASE_URL 
+       echo USER_NAME
       
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
