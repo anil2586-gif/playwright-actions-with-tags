@@ -1,29 +1,23 @@
 name: Playwright Tests
 on:
  workflow_dispatch:
-   inputs:
-     target-env:
-      description: Environment to run
-      type: environment
-      required: true
-      default: qa
+env:
+  DAY_OF_WEEK: Monday  
 jobs:
   test:
-    timeout-minutes: 60
-    environment: ${{inputs.target-env}}
+    timeout-minutes: 60  
     env:
-      BASE_URL: ${{vars.BASE_URL}}     
-      USER_NAME: ${{secrets.USERNAME}}
-          
-      
+     MY_NAME: Anil
     runs-on: ubuntu-latest
     steps:
-    - name: Print configured values
+    - name: Print configured values    
       run: |       
           # Use $ to print the environment variable values
-          echo "The base URL is: $BASE_URL"
-          echo "The username is: $USER_NAME"
-      
+          echo "The base URL is: $DAY_OF_WEEK"
+          echo "The username is: $MY_NAME"
+          echo "The steps env is: $stepsenv"
+      env:
+        stepsenv: Laste
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
