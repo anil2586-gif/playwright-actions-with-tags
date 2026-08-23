@@ -13,13 +13,17 @@ jobs:
     environment:
     name: ${{inputs.target-env}}
     env:
-      BASE_URL: ${{vars.BASE_URL}}
-      run: echo BASE_URL, USER_NAME
+      BASE_URL: ${{vars.BASE_URL}}     
       USER_NAME: ${{secrets.USERNAME}}
           
       
     runs-on: ubuntu-latest
     steps:
+    - name: Print configured values
+      run: |
+       echo "BASE_URL: $BASE_URL" 
+       echo "USER_NAME: $USER_NAME"
+      
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
