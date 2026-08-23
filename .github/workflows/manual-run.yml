@@ -9,4 +9,8 @@ on:
       type: environment
       required: true
 jobs:
+  test:
+   runs-on: ubuntu-slim
+   environment: 
+   name: ${{inputs.target_environments}}
   
