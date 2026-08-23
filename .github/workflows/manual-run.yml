@@ -1,1 +1,10 @@
 
+name: my-playwright-test
+
+on:
+  workflow_dispatch: 
+   inputs:
+     target_environments:
+      description: Environment to test
+      type: environment
+      required: true
